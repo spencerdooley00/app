@@ -1,72 +1,84 @@
-body {
+/* Reset */
+body,
+html {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
     background-color: #f8f9fa;
+    color: #333;
 }
 
-.main-container {
+/* Layout */
+.container {
     display: flex;
     height: 100vh;
 }
 
+/* Sidebar */
 .sidebar {
-    width: 280px;
-    padding: 24px;
+    width: 300px;
+    padding: 20px;
     background-color: #ffffff;
     border-right: 1px solid #ddd;
     overflow-y: auto;
-    box-sizing: border-box;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
 }
 
-.sidebar h2 {
-    margin-top: 0;
+.sidebar h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
-.sidebar label {
+.sidebar label,
+.sidebar select {
     display: block;
-    margin: 10px 0 4px;
-    font-weight: 600;
+    margin: 10px 0 5px;
 }
 
-.checkbox-list {
-    max-height: 400px;
+
+.players {
+    max-height: 300px;
     overflow-y: auto;
-    padding-right: 8px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    margin-bottom: 20px;
 }
 
-.checkbox-list label {
-    font-weight: normal;
-    white-space: nowrap;
+.players label {
+    display: block;
+    font-size: 14px;
+    margin: 4px 0;
 }
 
-button[type="submit"] {
-    margin-top: 20px;
-    width: 100%;
-    padding: 10px;
+/* Button */
+.submit-btn {
     background-color: #007bff;
-    color: white;
-    font-weight: 600;
     border: none;
-    border-radius: 4px;
+    color: white;
+    padding: 10px 15px;
+    font-size: 14px;
     cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
 }
 
-button[type="submit"]:hover {
+.submit-btn:hover {
     background-color: #0056b3;
 }
 
-.network-container {
-    flex: 1;
-    padding: 24px;
-    box-sizing: border-box;
-    background-color: white;
+/* Main Network Area */
+.network {
+    flex-grow: 1;
+    padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
-.network-iframe {
+.network-frame {
+    width: 100%;
+    height: 90vh;
     border: none;
-    box-shadow: none;
-    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
