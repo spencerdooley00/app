@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 800px;
+                 height: 600px;
+                 background-color: #FFFFFF;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "font": {"color": "black"}, "id": "Ariel Hukporti", "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630574.png", "label": " ", "shape": "image", "size": 50}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Cameron Payne", "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1626166.png", "label": " ", "shape": "image", "size": 50}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Jacob Toppin", "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1631210.png", "label": " ", "shape": "image", "size": 50}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Jalen Brunson", "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628973.png", "label": " ", "shape": "image", "size": 50}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Jericho Sims", "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630579.png", "label": " ", "shape": "image", "size": 50}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Josh Hart", "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628404.png", "label": " ", "shape": "image", "size": 50}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Karl-Anthony Towns", "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1626157.png", "label": " ", "shape": "image", "size": 50}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Matt Ryan", "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630346.png", "label": " ", "shape": "image", "size": 50}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Mikal Bridges", "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628969.png", "label": " ", "shape": "image", "size": 50}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Miles McBride", "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1630540.png", "label": " ", "shape": "image", "size": 50}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "OG Anunoby", "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1628384.png", "label": " ", "shape": "image", "size": 50}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Pac\u00f4me Dadiet", "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642359.png", "label": " ", "shape": "image", "size": 50}, {"color": "#97c2fc", "font": {"color": "black"}, "id": "Tyler Kolek", "image": "https://cdn.nba.com/headshots/nba/latest/1040x760/1642278.png", "label": " ", "shape": "image", "size": 50}]);
+                  edges = new vis.DataSet([{"arrows": "to", "color": "#006BB6", "from": "Ariel Hukporti", "title": "1.57", "to": "Cameron Payne", "value": 1.57}, {"arrows": "to", "color": "#006BB6", "from": "Ariel Hukporti", "title": "0.71", "to": "Jacob Toppin", "value": 0.71}, {"arrows": "to", "color": "#006BB6", "from": "Ariel Hukporti", "title": "1.14", "to": "Jalen Brunson", "value": 1.14}, {"arrows": "to", "color": "#006BB6", "from": "Ariel Hukporti", "title": "1", "to": "Josh Hart", "value": 1}, {"arrows": "to", "color": "#006BB6", "from": "Ariel Hukporti", "title": "0.14", "to": "Matt Ryan", "value": 0.14}, {"arrows": "to", "color": "#006BB6", "from": "Ariel Hukporti", "title": "0.86", "to": "Mikal Bridges", "value": 0.86}, {"arrows": "to", "color": "#006BB6", "from": "Ariel Hukporti", "title": "0.43", "to": "Miles McBride", "value": 0.43}, {"arrows": "to", "color": "#006BB6", "from": "Ariel Hukporti", "title": "0.14", "to": "OG Anunoby", "value": 0.14}, {"arrows": "to", "color": "#006BB6", "from": "Ariel Hukporti", "title": "0.43", "to": "Pac\u00f4me Dadiet", "value": 0.43}, {"arrows": "to", "color": "#006BB6", "from": "Ariel Hukporti", "title": "2.14", "to": "Tyler Kolek", "value": 2.14}, {"arrows": "to", "color": "#006BB6", "from": "Cameron Payne", "title": "0.42", "to": "Ariel Hukporti", "value": 0.42}, {"arrows": "to", "color": "#006BB6", "from": "Cameron Payne", "title": "2.92", "to": "Jalen Brunson", "value": 2.92}, {"arrows": "to", "color": "#006BB6", "from": "Cameron Payne", "title": "1.67", "to": "Jericho Sims", "value": 1.67}, {"arrows": "to", "color": "#006BB6", "from": "Cameron Payne", "title": "2.42", "to": "Josh Hart", "value": 2.42}, {"arrows": "to", "color": "#006BB6", "from": "Cameron Payne", "title": "4.75", "to": "Karl-Anthony Towns", "value": 4.75}, {"arrows": "to", "color": "#006BB6", "from": "Cameron Payne", "title": "0.08", "to": "Matt Ryan", "value": 0.08}, {"arrows": "to", "color": "#006BB6", "from": "Cameron Payne", "title": "5", "to": "Mikal Bridges", "value": 5}, {"arrows": "to", "color": "#006BB6", "from": "Cameron Payne", "title": "4.42", "to": "Miles McBride", "value": 4.42}, {"arrows": "to", "color": "#006BB6", "from": "Cameron Payne", "title": "2.25", "to": "OG Anunoby", "value": 2.25}, {"arrows": "to", "color": "#006BB6", "from": "Cameron Payne", "title": "1.17", "to": "Pac\u00f4me Dadiet", "value": 1.17}, {"arrows": "to", "color": "#006BB6", "from": "Cameron Payne", "title": "2", "to": "Tyler Kolek", "value": 2}, {"arrows": "to", "color": "#006BB6", "from": "Jacob Toppin", "title": "0.6", "to": "Ariel Hukporti", "value": 0.6}, {"arrows": "to", "color": "#006BB6", "from": "Jacob Toppin", "title": "0.2", "to": "Cameron Payne", "value": 0.2}, {"arrows": "to", "color": "#006BB6", "from": "Jacob Toppin", "title": "0.2", "to": "Jericho Sims", "value": 0.2}, {"arrows": "to", "color": "#006BB6", "from": "Jacob Toppin", "title": "0.8", "to": "Miles McBride", "value": 0.8}, {"arrows": "to", "color": "#006BB6", "from": "Jacob Toppin", "title": "0.6", "to": "Pac\u00f4me Dadiet", "value": 0.6}, {"arrows": "to", "color": "#006BB6", "from": "Jacob Toppin", "title": "2", "to": "Tyler Kolek", "value": 2}, {"arrows": "to", "color": "#006BB6", "from": "Jalen Brunson", "title": "0.25", "to": "Ariel Hukporti", "value": 0.25}, {"arrows": "to", "color": "#006BB6", "from": "Jalen Brunson", "title": "1.75", "to": "Cameron Payne", "value": 1.75}, {"arrows": "to", "color": "#006BB6", "from": "Jalen Brunson", "title": "2.38", "to": "Jericho Sims", "value": 2.38}, {"arrows": "to", "color": "#006BB6", "from": "Jalen Brunson", "title": "16.38", "to": "Josh Hart", "value": 16.38}, {"arrows": "to", "color": "#006BB6", "from": "Jalen Brunson", "title": "12.25", "to": "Karl-Anthony Towns", "value": 12.25}, {"arrows": "to", "color": "#006BB6", "from": "Jalen Brunson", "title": "12.63", "to": "Mikal Bridges", "value": 12.63}, {"arrows": "to", "color": "#006BB6", "from": "Jalen Brunson", "title": "3.5", "to": "Miles McBride", "value": 3.5}, {"arrows": "to", "color": "#006BB6", "from": "Jalen Brunson", "title": "8.06", "to": "OG Anunoby", "value": 8.06}, {"arrows": "to", "color": "#006BB6", "from": "Jalen Brunson", "title": "0.06", "to": "Pac\u00f4me Dadiet", "value": 0.06}, {"arrows": "to", "color": "#006BB6", "from": "Jericho Sims", "title": "0.19", "to": "Ariel Hukporti", "value": 0.19}, {"arrows": "to", "color": "#006BB6", "from": "Jericho Sims", "title": "1.69", "to": "Cameron Payne", "value": 1.69}, {"arrows": "to", "color": "#006BB6", "from": "Jericho Sims", "title": "0.06", "to": "Jacob Toppin", "value": 0.06}, {"arrows": "to", "color": "#006BB6", "from": "Jericho Sims", "title": "5.88", "to": "Jalen Brunson", "value": 5.88}, {"arrows": "to", "color": "#006BB6", "from": "Jericho Sims", "title": "1.63", "to": "Josh Hart", "value": 1.63}, {"arrows": "to", "color": "#006BB6", "from": "Jericho Sims", "title": "0.19", "to": "Matt Ryan", "value": 0.19}, {"arrows": "to", "color": "#006BB6", "from": "Jericho Sims", "title": "1.75", "to": "Mikal Bridges", "value": 1.75}, {"arrows": "to", "color": "#006BB6", "from": "Jericho Sims", "title": "1.31", "to": "Miles McBride", "value": 1.31}, {"arrows": "to", "color": "#006BB6", "from": "Jericho Sims", "title": "0.75", "to": "OG Anunoby", "value": 0.75}, {"arrows": "to", "color": "#006BB6", "from": "Jericho Sims", "title": "0.19", "to": "Pac\u00f4me Dadiet", "value": 0.19}, {"arrows": "to", "color": "#006BB6", "from": "Jericho Sims", "title": "1.06", "to": "Tyler Kolek", "value": 1.06}, {"arrows": "to", "color": "#006BB6", "from": "Josh Hart", "title": "0.5", "to": "Ariel Hukporti", "value": 0.5}, {"arrows": "to", "color": "#006BB6", "from": "Josh Hart", "title": "3.75", "to": "Cameron Payne", "value": 3.75}, {"arrows": "to", "color": "#006BB6", "from": "Josh Hart", "title": "23.44", "to": "Jalen Brunson", "value": 23.44}, {"arrows": "to", "color": "#006BB6", "from": "Josh Hart", "title": "1.31", "to": "Jericho Sims", "value": 1.31}, {"arrows": "to", "color": "#006BB6", "from": "Josh Hart", "title": "8.75", "to": "Karl-Anthony Towns", "value": 8.75}, {"arrows": "to", "color": "#006BB6", "from": "Josh Hart", "title": "0.06", "to": "Matt Ryan", "value": 0.06}, {"arrows": "to", "color": "#006BB6", "from": "Josh Hart", "title": "7.38", "to": "Mikal Bridges", "value": 7.38}, {"arrows": "to", "color": "#006BB6", "from": "Josh Hart", "title": "3.63", "to": "Miles McBride", "value": 3.63}, {"arrows": "to", "color": "#006BB6", "from": "Josh Hart", "title": "6.81", "to": "OG Anunoby", "value": 6.81}, {"arrows": "to", "color": "#006BB6", "from": "Josh Hart", "title": "0.13", "to": "Pac\u00f4me Dadiet", "value": 0.13}, {"arrows": "to", "color": "#006BB6", "from": "Josh Hart", "title": "1.31", "to": "Tyler Kolek", "value": 1.31}, {"arrows": "to", "color": "#006BB6", "from": "Karl-Anthony Towns", "title": "3.33", "to": "Cameron Payne", "value": 3.33}, {"arrows": "to", "color": "#006BB6", "from": "Karl-Anthony Towns", "title": "15.87", "to": "Jalen Brunson", "value": 15.87}, {"arrows": "to", "color": "#006BB6", "from": "Karl-Anthony Towns", "title": "7.33", "to": "Josh Hart", "value": 7.33}, {"arrows": "to", "color": "#006BB6", "from": "Karl-Anthony Towns", "title": "0.13", "to": "Matt Ryan", "value": 0.13}, {"arrows": "to", "color": "#006BB6", "from": "Karl-Anthony Towns", "title": "4.27", "to": "Mikal Bridges", "value": 4.27}, {"arrows": "to", "color": "#006BB6", "from": "Karl-Anthony Towns", "title": "3.07", "to": "Miles McBride", "value": 3.07}, {"arrows": "to", "color": "#006BB6", "from": "Karl-Anthony Towns", "title": "3.8", "to": "OG Anunoby", "value": 3.8}, {"arrows": "to", "color": "#006BB6", "from": "Karl-Anthony Towns", "title": "0.13", "to": "Pac\u00f4me Dadiet", "value": 0.13}, {"arrows": "to", "color": "#006BB6", "from": "Karl-Anthony Towns", "title": "0.8", "to": "Tyler Kolek", "value": 0.8}, {"arrows": "to", "color": "#006BB6", "from": "Matt Ryan", "title": "0.5", "to": "Ariel Hukporti", "value": 0.5}, {"arrows": "to", "color": "#006BB6", "from": "Matt Ryan", "title": "0.75", "to": "Cameron Payne", "value": 0.75}, {"arrows": "to", "color": "#006BB6", "from": "Matt Ryan", "title": "0.5", "to": "Josh Hart", "value": 0.5}, {"arrows": "to", "color": "#006BB6", "from": "Matt Ryan", "title": "0.5", "to": "Miles McBride", "value": 0.5}, {"arrows": "to", "color": "#006BB6", "from": "Matt Ryan", "title": "0.25", "to": "OG Anunoby", "value": 0.25}, {"arrows": "to", "color": "#006BB6", "from": "Matt Ryan", "title": "0.25", "to": "Pac\u00f4me Dadiet", "value": 0.25}, {"arrows": "to", "color": "#006BB6", "from": "Matt Ryan", "title": "1", "to": "Tyler Kolek", "value": 1}, {"arrows": "to", "color": "#006BB6", "from": "Mikal Bridges", "title": "0.44", "to": "Ariel Hukporti", "value": 0.44}, {"arrows": "to", "color": "#006BB6", "from": "Mikal Bridges", "title": "2.5", "to": "Cameron Payne", "value": 2.5}, {"arrows": "to", "color": "#006BB6", "from": "Mikal Bridges", "title": "9.5", "to": "Jalen Brunson", "value": 9.5}, {"arrows": "to", "color": "#006BB6", "from": "Mikal Bridges", "title": "1.19", "to": "Jericho Sims", "value": 1.19}, {"arrows": "to", "color": "#006BB6", "from": "Mikal Bridges", "title": "5.31", "to": "Josh Hart", "value": 5.31}, {"arrows": "to", "color": "#006BB6", "from": "Mikal Bridges", "title": "5.06", "to": "Karl-Anthony Towns", "value": 5.06}, {"arrows": "to", "color": "#006BB6", "from": "Mikal Bridges", "title": "2.69", "to": "Miles McBride", "value": 2.69}, {"arrows": "to", "color": "#006BB6", "from": "Mikal Bridges", "title": "4.25", "to": "OG Anunoby", "value": 4.25}, {"arrows": "to", "color": "#006BB6", "from": "Mikal Bridges", "title": "0.13", "to": "Pac\u00f4me Dadiet", "value": 0.13}, {"arrows": "to", "color": "#006BB6", "from": "Mikal Bridges", "title": "0.5", "to": "Tyler Kolek", "value": 0.5}, {"arrows": "to", "color": "#006BB6", "from": "Miles McBride", "title": "0.45", "to": "Ariel Hukporti", "value": 0.45}, {"arrows": "to", "color": "#006BB6", "from": "Miles McBride", "title": "4", "to": "Cameron Payne", "value": 4}, {"arrows": "to", "color": "#006BB6", "from": "Miles McBride", "title": "0.18", "to": "Jacob Toppin", "value": 0.18}, {"arrows": "to", "color": "#006BB6", "from": "Miles McBride", "title": "7.27", "to": "Jalen Brunson", "value": 7.27}, {"arrows": "to", "color": "#006BB6", "from": "Miles McBride", "title": "1.09", "to": "Jericho Sims", "value": 1.09}, {"arrows": "to", "color": "#006BB6", "from": "Miles McBride", "title": "4.36", "to": "Josh Hart", "value": 4.36}, {"arrows": "to", "color": "#006BB6", "from": "Miles McBride", "title": "3.73", "to": "Karl-Anthony Towns", "value": 3.73}, {"arrows": "to", "color": "#006BB6", "from": "Miles McBride", "title": "0.45", "to": "Matt Ryan", "value": 0.45}, {"arrows": "to", "color": "#006BB6", "from": "Miles McBride", "title": "4.27", "to": "Mikal Bridges", "value": 4.27}, {"arrows": "to", "color": "#006BB6", "from": "Miles McBride", "title": "2.09", "to": "OG Anunoby", "value": 2.09}, {"arrows": "to", "color": "#006BB6", "from": "Miles McBride", "title": "0.45", "to": "Pac\u00f4me Dadiet", "value": 0.45}, {"arrows": "to", "color": "#006BB6", "from": "Miles McBride", "title": "1.27", "to": "Tyler Kolek", "value": 1.27}, {"arrows": "to", "color": "#006BB6", "from": "OG Anunoby", "title": "0.13", "to": "Ariel Hukporti", "value": 0.13}, {"arrows": "to", "color": "#006BB6", "from": "OG Anunoby", "title": "2.25", "to": "Cameron Payne", "value": 2.25}, {"arrows": "to", "color": "#006BB6", "from": "OG Anunoby", "title": "10.75", "to": "Jalen Brunson", "value": 10.75}, {"arrows": "to", "color": "#006BB6", "from": "OG Anunoby", "title": "0.94", "to": "Jericho Sims", "value": 0.94}, {"arrows": "to", "color": "#006BB6", "from": "OG Anunoby", "title": "5.38", "to": "Josh Hart", "value": 5.38}, {"arrows": "to", "color": "#006BB6", "from": "OG Anunoby", "title": "2.69", "to": "Karl-Anthony Towns", "value": 2.69}, {"arrows": "to", "color": "#006BB6", "from": "OG Anunoby", "title": "0.06", "to": "Matt Ryan", "value": 0.06}, {"arrows": "to", "color": "#006BB6", "from": "OG Anunoby", "title": "4.06", "to": "Mikal Bridges", "value": 4.06}, {"arrows": "to", "color": "#006BB6", "from": "OG Anunoby", "title": "1.69", "to": "Miles McBride", "value": 1.69}, {"arrows": "to", "color": "#006BB6", "from": "OG Anunoby", "title": "0.31", "to": "Tyler Kolek", "value": 0.31}, {"arrows": "to", "color": "#006BB6", "from": "Pac\u00f4me Dadiet", "title": "0.88", "to": "Ariel Hukporti", "value": 0.88}, {"arrows": "to", "color": "#006BB6", "from": "Pac\u00f4me Dadiet", "title": "1.5", "to": "Cameron Payne", "value": 1.5}, {"arrows": "to", "color": "#006BB6", "from": "Pac\u00f4me Dadiet", "title": "0.25", "to": "Jacob Toppin", "value": 0.25}, {"arrows": "to", "color": "#006BB6", "from": "Pac\u00f4me Dadiet", "title": "0.88", "to": "Jalen Brunson", "value": 0.88}, {"arrows": "to", "color": "#006BB6", "from": "Pac\u00f4me Dadiet", "title": "0.38", "to": "Jericho Sims", "value": 0.38}, {"arrows": "to", "color": "#006BB6", "from": "Pac\u00f4me Dadiet", "title": "0.38", "to": "Josh Hart", "value": 0.38}, {"arrows": "to", "color": "#006BB6", "from": "Pac\u00f4me Dadiet", "title": "0.25", "to": "Karl-Anthony Towns", "value": 0.25}, {"arrows": "to", "color": "#006BB6", "from": "Pac\u00f4me Dadiet", "title": "0.13", "to": "Matt Ryan", "value": 0.13}, {"arrows": "to", "color": "#006BB6", "from": "Pac\u00f4me Dadiet", "title": "0.63", "to": "Mikal Bridges", "value": 0.63}, {"arrows": "to", "color": "#006BB6", "from": "Pac\u00f4me Dadiet", "title": "0.63", "to": "Miles McBride", "value": 0.63}, {"arrows": "to", "color": "#006BB6", "from": "Pac\u00f4me Dadiet", "title": "0.13", "to": "OG Anunoby", "value": 0.13}, {"arrows": "to", "color": "#006BB6", "from": "Pac\u00f4me Dadiet", "title": "2.25", "to": "Tyler Kolek", "value": 2.25}, {"arrows": "to", "color": "#006BB6", "from": "Tyler Kolek", "title": "0.36", "to": "Ariel Hukporti", "value": 0.36}, {"arrows": "to", "color": "#006BB6", "from": "Tyler Kolek", "title": "2.55", "to": "Cameron Payne", "value": 2.55}, {"arrows": "to", "color": "#006BB6", "from": "Tyler Kolek", "title": "0.73", "to": "Jacob Toppin", "value": 0.73}, {"arrows": "to", "color": "#006BB6", "from": "Tyler Kolek", "title": "1.18", "to": "Jericho Sims", "value": 1.18}, {"arrows": "to", "color": "#006BB6", "from": "Tyler Kolek", "title": "1.91", "to": "Josh Hart", "value": 1.91}, {"arrows": "to", "color": "#006BB6", "from": "Tyler Kolek", "title": "1.36", "to": "Karl-Anthony Towns", "value": 1.36}, {"arrows": "to", "color": "#006BB6", "from": "Tyler Kolek", "title": "0.09", "to": "Matt Ryan", "value": 0.09}, {"arrows": "to", "color": "#006BB6", "from": "Tyler Kolek", "title": "1.27", "to": "Mikal Bridges", "value": 1.27}, {"arrows": "to", "color": "#006BB6", "from": "Tyler Kolek", "title": "1.45", "to": "Miles McBride", "value": 1.45}, {"arrows": "to", "color": "#006BB6", "from": "Tyler Kolek", "title": "0.36", "to": "OG Anunoby", "value": 0.36}, {"arrows": "to", "color": "#006BB6", "from": "Tyler Kolek", "title": "0.91", "to": "Pac\u00f4me Dadiet", "value": 0.91}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"nodes": {"borderWidth": 0, "borderWidthSelected": 7, "opacity": 1, "font": {"size": 36}, "scaling": {"max": 46}, "size": 19}, "edges": {"color": {"inherit": true, "opacity": 0.5}, "selfReferenceSize": 1, "selfReference": {"angle": 0.7853981633974483}, "smooth": {"forceDirection": "none"}}, "physics": {"forceAtlas2Based": {"gravitationalConstant": -326, "springLength": 70, "damping": 1}, "minVelocity": 0.75, "solver": "forceAtlas2Based", "timestep": 0.25}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
