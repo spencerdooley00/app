@@ -8,10 +8,10 @@ import os
 app = Flask(__name__)
 
 # Load JSON metadata
-with open("webpage/network_data/all_stats.json", "r") as f:
+with open("network_data/all_stats.json", "r") as f:
     all_stats = json.load(f)
 
-with open("webpage/network_data/teams.json", "r") as f:
+with open("network_data/teams.json", "r") as f:
     team_info = json.load(f)
 
 @app.route("/", methods=["GET", "POST"])

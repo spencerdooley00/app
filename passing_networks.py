@@ -4,10 +4,10 @@ from pyvis.network import Network
 from nltk import ngrams
 
 # Load JSON data from local files
-with open("webpage/network_data/all_stats.json", "r") as f:
+with open("network_data/all_stats.json", "r") as f:
     all_stats = json.load(f)
 
-with open("webpage/network_data/teams.json", "r") as f:
+with open("network_data/teams.json", "r") as f:
     team_info_all = json.load(f)
 
 # Helper function: Jaccard similarity for name matching
@@ -103,7 +103,7 @@ def create_network(team_data, team_name, color, edge_info, selected_players):
     }
     """)
     # Save network as an HTML file
-    net.save_graph(f"webpage/static/{team_name}_network.html")
+    net.save_graph(f"static/{team_name}_network.html")
     return net, G
 
 # Generate default starter list
