@@ -29,7 +29,7 @@ function renderNetwork(data) {
         .attr("fill", "#999");
 
     const simulation = d3.forceSimulation(data.nodes)
-        .force("link", d3.forceLink(data.links).id(d => d.id).distance(300))  // longer edges
+        .force("link", d3.forceLink(data.links).id(d => d.id).distance(350))  // longer edges
         .force("charge", d3.forceManyBody().strength(-700))  // more repulsion
         .force("center", d3.forceCenter(width / 2, height / 2))
         .force("collision", d3.forceCollide().radius(40))
@@ -57,8 +57,8 @@ function renderNetwork(data) {
         .data(data.nodes)
         .join("image")
         .attr("xlink:href", d => d.img)
-        .attr("width", 70)
-        .attr("height", 70)
+        .attr("width", 80)
+        .attr("height", 80)
         .attr("x", -20)
         .attr("y", -20)
         .call(drag(simulation));
