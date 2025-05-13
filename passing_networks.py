@@ -51,7 +51,7 @@ def create_network(team_data, team_name, color, edge_info, selected_players):
         player_dict = team_data[player]
         net.add_node(player, shape="image",
                      image=player_dict["img"], size=50, label=' ')
-        G.add_node(player)
+        G.add_node(player, image = player_dict["img"])
 
     for player in selected_players:
         if "passes" in team_data[player]:
@@ -102,8 +102,20 @@ def create_network(team_data, team_name, color, edge_info, selected_players):
       }
     }
     """)
+    custom_style = """
+                    <style>
+                      body { margin: 0; }
+                      #mynetwork {
+                        border: none !important;
+                        box-shadow: none !important;
+                        padding: 0 !important;
+                        background: white !important;
+                      }
+                    </style>
+                    """
+    net.html += custom_style
     # Save network as an HTML file
-    net.save_graph(f"static/{team_name}_network.html")
+    # net.save_graph(f"static/{team_name}_network.html")
     return net, G
 
 # Generate default starter list
@@ -112,17 +124,51 @@ def create_network(team_data, team_name, color, edge_info, selected_players):
 def get_default_starters(season, team):
     return team_info_all[f"Season={season}"][team]["starter_info"]["starters"]
 
+def generate_d3_data(G):
+    def format_name_for_url(name):
+        # Example: "LeBron James" → "lebron_james"
+        return name.lower().replace(" ", "_")
 
-# Example usage
-if __name__ == "__main__":
-    season = "2023-24"
-    team = "NYK"
-    edge_info = "Pass Per Game"
+    nodes = []
+    for node in G.nodes():
+        name = G.nodes[node].get("name", node)
+        # player_image = f"https://cdn.nba.com/headshots/nba/latest/260x190/{node}.png"  # or custom logic
+        player_image = G.nodes[node].get("image", node)
+        nodes.append({
+            "id": node,
+            "name": name,
+            "img": player_image
+        })
 
-    _, team_data, team_info = fetch_data(season, team)
-    starters = get_default_starters(season, team)
+    links = [{"source": u, "target": v, "weight": G[u][v].get("weight", 1)} for u, v in G.edges()]
+    return {"nodes": nodes, "links": links}
 
-    net, G = create_network(
-        team_data, team, team_info["primary_color"], edge_info, starters)
-    # print(G)
-    # net.show("net.html")
+# def generate_d3_data(G):
+#     nodes = [{"id": node, "name": G.nodes[node].get("name", node)} for node in G.nodes()]
+#     links = [{"source": u, "target": v, "weight": G[u][v].get("weight", 1)} for u, v in G.edges()]
+#     return {"nodes": nodes, "links": links}
+
+# def generate_d3_data(graph: nx.DiGraph, output_path: str):
+#     data = {
+#         "nodes": [],
+#         "links": []
+#     }
+
+#     # Add nodes with metadata
+#     for node in graph.nodes(data=True):
+#         data["nodes"].append({
+#             "id": node[0],
+#             "image": node[1].get("image", ""),
+#             "label": node[1].get("label", node[0])
+#         })
+
+#     # Add edges with weights
+#     for source, target, attrs in graph.edges(data=True):
+#         data["links"].append({
+#             "source": source,
+#             "target": target,
+#             "value": attrs.get("weight", 1)
+#         })
+
+#     with open(output_path, "w") as f:
+#         json.dump(data, f, indent=2)

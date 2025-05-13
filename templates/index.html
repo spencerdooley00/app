@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>NBA Passing Network</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='static.css') }}">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -40,10 +41,62 @@
         </aside>
 
         <main class="network">
-            {% if network_file %}
-                <iframe src="{{ url_for('static', filename=network_file) }}" frameborder="0" class="network-frame"></iframe>
-            {% endif %}
+            <div id="network"></div>
         </main>
     </div>
+
+    <script src="{{ url_for('static', filename='network.js') }}"></script>
 </body>
 </html>
+
+
+
+// <!-- <!DOCTYPE html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//     <title>NBA Passing Network</title>
+//     <link rel="stylesheet" href="{{ url_for('static', filename='static.css') }}">
+// </head>
+// <body>
+//     <div class="container">
+//         <aside class="sidebar">
+//             <h1>NBA Network</h1>
+//             <form method="POST">
+//                 <label for="season">Season:</label>
+//                 <select name="season" id="season" onchange="this.form.submit()">
+//                     {% for season in seasons %}
+//                         <option value="{{ season }}" {% if season == selected_season %}selected{% endif %}>{{ season }}</option>
+//                     {% endfor %}
+//                 </select>
+
+//                 <label for="team">Team:</label>
+//                 <select name="team" id="team" onchange="this.form.submit()">
+//                     {% for team in teams %}
+//                         <option value="{{ team }}" {% if team == selected_team %}selected{% endif %}>{{ team }}</option>
+//                     {% endfor %}
+//                 </select>
+
+//                 <h3>Players</h3>
+//                 <div class="players">
+//                     {% for player in players %}
+//                         <label>
+//                             <input type="checkbox" name="players" value="{{ player }}"
+//                                 {% if player in selected_players %}checked{% endif %}>
+//                             {{ player }}
+//                         </label>
+//                     {% endfor %}
+//                 </div>
+
+//                 <input type="submit" value="Generate Network" class="submit-btn">
+//             </form>
+//         </aside>
+
+//         <main class="network">
+//             {% if network_file %}
+//                 <iframe src="{{ url_for('static', filename=network_file) }}" frameborder="0" class="network-frame"></iframe>
+//             {% endif %}
+//         </main>
+//     </div>
+// </body>
+// </html> -->

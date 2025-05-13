@@ -1,0 +1,976 @@
+{
+  "nodes": [
+    {
+      "id": "Bogdan Bogdanovi\u0107",
+      "image": "",
+      "label": "Bogdan Bogdanovi\u0107"
+    },
+    {
+      "id": "Clint Capela",
+      "image": "",
+      "label": "Clint Capela"
+    },
+    {
+      "id": "David Roddy",
+      "image": "",
+      "label": "David Roddy"
+    },
+    {
+      "id": "DeAndre Hunter",
+      "image": "",
+      "label": "DeAndre Hunter"
+    },
+    {
+      "id": "Dominick Barlow",
+      "image": "",
+      "label": "Dominick Barlow"
+    },
+    {
+      "id": "Dyson Daniels",
+      "image": "",
+      "label": "Dyson Daniels"
+    },
+    {
+      "id": "Garrison Mathews",
+      "image": "",
+      "label": "Garrison Mathews"
+    },
+    {
+      "id": "Jalen Johnson",
+      "image": "",
+      "label": "Jalen Johnson"
+    },
+    {
+      "id": "Keaton Wallace",
+      "image": "",
+      "label": "Keaton Wallace"
+    },
+    {
+      "id": "Kobe Bufkin",
+      "image": "",
+      "label": "Kobe Bufkin"
+    },
+    {
+      "id": "Larry Nance Jr",
+      "image": "",
+      "label": "Larry Nance Jr"
+    },
+    {
+      "id": "Mouhamed Gueye",
+      "image": "",
+      "label": "Mouhamed Gueye"
+    },
+    {
+      "id": "Onyeka Okongwu",
+      "image": "",
+      "label": "Onyeka Okongwu"
+    },
+    {
+      "id": "Trae Young",
+      "image": "",
+      "label": "Trae Young"
+    },
+    {
+      "id": "V\u00edt Krej\u010d\u00ed",
+      "image": "",
+      "label": "V\u00edt Krej\u010d\u00ed"
+    },
+    {
+      "id": "Zaccharie Risacher",
+      "image": "",
+      "label": "Zaccharie Risacher"
+    }
+  ],
+  "links": [
+    {
+      "source": "Bogdan Bogdanovi\u0107",
+      "target": "Clint Capela",
+      "value": 1
+    },
+    {
+      "source": "Bogdan Bogdanovi\u0107",
+      "target": "David Roddy",
+      "value": 0.75
+    },
+    {
+      "source": "Bogdan Bogdanovi\u0107",
+      "target": "DeAndre Hunter",
+      "value": 3
+    },
+    {
+      "source": "Bogdan Bogdanovi\u0107",
+      "target": "Dyson Daniels",
+      "value": 1.25
+    },
+    {
+      "source": "Bogdan Bogdanovi\u0107",
+      "target": "Jalen Johnson",
+      "value": 3
+    },
+    {
+      "source": "Bogdan Bogdanovi\u0107",
+      "target": "Kobe Bufkin",
+      "value": 4.75
+    },
+    {
+      "source": "Bogdan Bogdanovi\u0107",
+      "target": "Onyeka Okongwu",
+      "value": 4.25
+    },
+    {
+      "source": "Bogdan Bogdanovi\u0107",
+      "target": "Trae Young",
+      "value": 6.75
+    },
+    {
+      "source": "Bogdan Bogdanovi\u0107",
+      "target": "V\u00edt Krej\u010d\u00ed",
+      "value": 1.25
+    },
+    {
+      "source": "Bogdan Bogdanovi\u0107",
+      "target": "Zaccharie Risacher",
+      "value": 0.5
+    },
+    {
+      "source": "Clint Capela",
+      "target": "Bogdan Bogdanovi\u0107",
+      "value": 0.41
+    },
+    {
+      "source": "Clint Capela",
+      "target": "David Roddy",
+      "value": 0.24
+    },
+    {
+      "source": "Clint Capela",
+      "target": "DeAndre Hunter",
+      "value": 0.47
+    },
+    {
+      "source": "Clint Capela",
+      "target": "Dyson Daniels",
+      "value": 2.71
+    },
+    {
+      "source": "Clint Capela",
+      "target": "Garrison Mathews",
+      "value": 0.41
+    },
+    {
+      "source": "Clint Capela",
+      "target": "Jalen Johnson",
+      "value": 3.82
+    },
+    {
+      "source": "Clint Capela",
+      "target": "Keaton Wallace",
+      "value": 0.71
+    },
+    {
+      "source": "Clint Capela",
+      "target": "Kobe Bufkin",
+      "value": 0.12
+    },
+    {
+      "source": "Clint Capela",
+      "target": "Larry Nance Jr",
+      "value": 0.18
+    },
+    {
+      "source": "Clint Capela",
+      "target": "Trae Young",
+      "value": 7.88
+    },
+    {
+      "source": "Clint Capela",
+      "target": "Zaccharie Risacher",
+      "value": 1.06
+    },
+    {
+      "source": "David Roddy",
+      "target": "Clint Capela",
+      "value": 0.92
+    },
+    {
+      "source": "David Roddy",
+      "target": "Dominick Barlow",
+      "value": 0.08
+    },
+    {
+      "source": "David Roddy",
+      "target": "Dyson Daniels",
+      "value": 1.25
+    },
+    {
+      "source": "David Roddy",
+      "target": "Garrison Mathews",
+      "value": 1.75
+    },
+    {
+      "source": "David Roddy",
+      "target": "Jalen Johnson",
+      "value": 1.75
+    },
+    {
+      "source": "David Roddy",
+      "target": "Keaton Wallace",
+      "value": 2.75
+    },
+    {
+      "source": "David Roddy",
+      "target": "Kobe Bufkin",
+      "value": 0.33
+    },
+    {
+      "source": "David Roddy",
+      "target": "Larry Nance Jr",
+      "value": 0.67
+    },
+    {
+      "source": "David Roddy",
+      "target": "Mouhamed Gueye",
+      "value": 0.17
+    },
+    {
+      "source": "David Roddy",
+      "target": "Onyeka Okongwu",
+      "value": 0.83
+    },
+    {
+      "source": "David Roddy",
+      "target": "Trae Young",
+      "value": 7.5
+    },
+    {
+      "source": "David Roddy",
+      "target": "V\u00edt Krej\u010d\u00ed",
+      "value": 0.5
+    },
+    {
+      "source": "David Roddy",
+      "target": "Zaccharie Risacher",
+      "value": 1.58
+    },
+    {
+      "source": "DeAndre Hunter",
+      "target": "Bogdan Bogdanovi\u0107",
+      "value": 1.67
+    },
+    {
+      "source": "DeAndre Hunter",
+      "target": "Clint Capela",
+      "value": 0.5
+    },
+    {
+      "source": "DeAndre Hunter",
+      "target": "Dyson Daniels",
+      "value": 1.67
+    },
+    {
+      "source": "DeAndre Hunter",
+      "target": "Garrison Mathews",
+      "value": 0.17
+    },
+    {
+      "source": "DeAndre Hunter",
+      "target": "Jalen Johnson",
+      "value": 2.33
+    },
+    {
+      "source": "DeAndre Hunter",
+      "target": "Keaton Wallace",
+      "value": 1.17
+    },
+    {
+      "source": "DeAndre Hunter",
+      "target": "Kobe Bufkin",
+      "value": 1.33
+    },
+    {
+      "source": "DeAndre Hunter",
+      "target": "Onyeka Okongwu",
+      "value": 1.5
+    },
+    {
+      "source": "DeAndre Hunter",
+      "target": "Trae Young",
+      "value": 11
+    },
+    {
+      "source": "DeAndre Hunter",
+      "target": "V\u00edt Krej\u010d\u00ed",
+      "value": 0.17
+    },
+    {
+      "source": "DeAndre Hunter",
+      "target": "Zaccharie Risacher",
+      "value": 0.5
+    },
+    {
+      "source": "Dominick Barlow",
+      "target": "David Roddy",
+      "value": 2
+    },
+    {
+      "source": "Dominick Barlow",
+      "target": "Mouhamed Gueye",
+      "value": 2
+    },
+    {
+      "source": "Dyson Daniels",
+      "target": "Bogdan Bogdanovi\u0107",
+      "value": 1.07
+    },
+    {
+      "source": "Dyson Daniels",
+      "target": "Clint Capela",
+      "value": 3.07
+    },
+    {
+      "source": "Dyson Daniels",
+      "target": "David Roddy",
+      "value": 0.47
+    },
+    {
+      "source": "Dyson Daniels",
+      "target": "DeAndre Hunter",
+      "value": 1.2
+    },
+    {
+      "source": "Dyson Daniels",
+      "target": "Garrison Mathews",
+      "value": 1.2
+    },
+    {
+      "source": "Dyson Daniels",
+      "target": "Jalen Johnson",
+      "value": 5.53
+    },
+    {
+      "source": "Dyson Daniels",
+      "target": "Keaton Wallace",
+      "value": 1.8
+    },
+    {
+      "source": "Dyson Daniels",
+      "target": "Kobe Bufkin",
+      "value": 0.6
+    },
+    {
+      "source": "Dyson Daniels",
+      "target": "Larry Nance Jr",
+      "value": 1.6
+    },
+    {
+      "source": "Dyson Daniels",
+      "target": "Onyeka Okongwu",
+      "value": 2.2
+    },
+    {
+      "source": "Dyson Daniels",
+      "target": "Trae Young",
+      "value": 12.47
+    },
+    {
+      "source": "Dyson Daniels",
+      "target": "V\u00edt Krej\u010d\u00ed",
+      "value": 0.47
+    },
+    {
+      "source": "Dyson Daniels",
+      "target": "Zaccharie Risacher",
+      "value": 2.53
+    },
+    {
+      "source": "Garrison Mathews",
+      "target": "Clint Capela",
+      "value": 0.33
+    },
+    {
+      "source": "Garrison Mathews",
+      "target": "David Roddy",
+      "value": 1.2
+    },
+    {
+      "source": "Garrison Mathews",
+      "target": "DeAndre Hunter",
+      "value": 0.2
+    },
+    {
+      "source": "Garrison Mathews",
+      "target": "Dominick Barlow",
+      "value": 0.07
+    },
+    {
+      "source": "Garrison Mathews",
+      "target": "Dyson Daniels",
+      "value": 1
+    },
+    {
+      "source": "Garrison Mathews",
+      "target": "Jalen Johnson",
+      "value": 1.93
+    },
+    {
+      "source": "Garrison Mathews",
+      "target": "Keaton Wallace",
+      "value": 1.07
+    },
+    {
+      "source": "Garrison Mathews",
+      "target": "Kobe Bufkin",
+      "value": 0.13
+    },
+    {
+      "source": "Garrison Mathews",
+      "target": "Larry Nance Jr",
+      "value": 0.67
+    },
+    {
+      "source": "Garrison Mathews",
+      "target": "Mouhamed Gueye",
+      "value": 0.2
+    },
+    {
+      "source": "Garrison Mathews",
+      "target": "Onyeka Okongwu",
+      "value": 1.07
+    },
+    {
+      "source": "Garrison Mathews",
+      "target": "Trae Young",
+      "value": 3.73
+    },
+    {
+      "source": "Garrison Mathews",
+      "target": "V\u00edt Krej\u010d\u00ed",
+      "value": 0.8
+    },
+    {
+      "source": "Garrison Mathews",
+      "target": "Zaccharie Risacher",
+      "value": 0.8
+    },
+    {
+      "source": "Jalen Johnson",
+      "target": "Bogdan Bogdanovi\u0107",
+      "value": 1.19
+    },
+    {
+      "source": "Jalen Johnson",
+      "target": "Clint Capela",
+      "value": 4.19
+    },
+    {
+      "source": "Jalen Johnson",
+      "target": "David Roddy",
+      "value": 1.88
+    },
+    {
+      "source": "Jalen Johnson",
+      "target": "DeAndre Hunter",
+      "value": 1.5
+    },
+    {
+      "source": "Jalen Johnson",
+      "target": "Dyson Daniels",
+      "value": 7.25
+    },
+    {
+      "source": "Jalen Johnson",
+      "target": "Garrison Mathews",
+      "value": 2.94
+    },
+    {
+      "source": "Jalen Johnson",
+      "target": "Keaton Wallace",
+      "value": 7.94
+    },
+    {
+      "source": "Jalen Johnson",
+      "target": "Kobe Bufkin",
+      "value": 1.25
+    },
+    {
+      "source": "Jalen Johnson",
+      "target": "Larry Nance Jr",
+      "value": 0.69
+    },
+    {
+      "source": "Jalen Johnson",
+      "target": "Onyeka Okongwu",
+      "value": 3.63
+    },
+    {
+      "source": "Jalen Johnson",
+      "target": "Trae Young",
+      "value": 32.25
+    },
+    {
+      "source": "Jalen Johnson",
+      "target": "V\u00edt Krej\u010d\u00ed",
+      "value": 3.19
+    },
+    {
+      "source": "Jalen Johnson",
+      "target": "Zaccharie Risacher",
+      "value": 5.25
+    },
+    {
+      "source": "Keaton Wallace",
+      "target": "Clint Capela",
+      "value": 0.58
+    },
+    {
+      "source": "Keaton Wallace",
+      "target": "David Roddy",
+      "value": 2
+    },
+    {
+      "source": "Keaton Wallace",
+      "target": "DeAndre Hunter",
+      "value": 0.08
+    },
+    {
+      "source": "Keaton Wallace",
+      "target": "Dominick Barlow",
+      "value": 0.17
+    },
+    {
+      "source": "Keaton Wallace",
+      "target": "Dyson Daniels",
+      "value": 2
+    },
+    {
+      "source": "Keaton Wallace",
+      "target": "Garrison Mathews",
+      "value": 3
+    },
+    {
+      "source": "Keaton Wallace",
+      "target": "Jalen Johnson",
+      "value": 9.58
+    },
+    {
+      "source": "Keaton Wallace",
+      "target": "Larry Nance Jr",
+      "value": 1.17
+    },
+    {
+      "source": "Keaton Wallace",
+      "target": "Mouhamed Gueye",
+      "value": 0.17
+    },
+    {
+      "source": "Keaton Wallace",
+      "target": "Onyeka Okongwu",
+      "value": 2.5
+    },
+    {
+      "source": "Keaton Wallace",
+      "target": "Trae Young",
+      "value": 1.58
+    },
+    {
+      "source": "Keaton Wallace",
+      "target": "V\u00edt Krej\u010d\u00ed",
+      "value": 0.67
+    },
+    {
+      "source": "Keaton Wallace",
+      "target": "Zaccharie Risacher",
+      "value": 2.17
+    },
+    {
+      "source": "Kobe Bufkin",
+      "target": "Bogdan Bogdanovi\u0107",
+      "value": 4.67
+    },
+    {
+      "source": "Kobe Bufkin",
+      "target": "Clint Capela",
+      "value": 0.67
+    },
+    {
+      "source": "Kobe Bufkin",
+      "target": "David Roddy",
+      "value": 0.33
+    },
+    {
+      "source": "Kobe Bufkin",
+      "target": "DeAndre Hunter",
+      "value": 3.33
+    },
+    {
+      "source": "Kobe Bufkin",
+      "target": "Dyson Daniels",
+      "value": 3
+    },
+    {
+      "source": "Kobe Bufkin",
+      "target": "Garrison Mathews",
+      "value": 0.33
+    },
+    {
+      "source": "Kobe Bufkin",
+      "target": "Jalen Johnson",
+      "value": 5
+    },
+    {
+      "source": "Kobe Bufkin",
+      "target": "Onyeka Okongwu",
+      "value": 1.67
+    },
+    {
+      "source": "Kobe Bufkin",
+      "target": "V\u00edt Krej\u010d\u00ed",
+      "value": 1.67
+    },
+    {
+      "source": "Kobe Bufkin",
+      "target": "Zaccharie Risacher",
+      "value": 2
+    },
+    {
+      "source": "Larry Nance Jr",
+      "target": "Clint Capela",
+      "value": 0.11
+    },
+    {
+      "source": "Larry Nance Jr",
+      "target": "David Roddy",
+      "value": 0.67
+    },
+    {
+      "source": "Larry Nance Jr",
+      "target": "DeAndre Hunter",
+      "value": 0.11
+    },
+    {
+      "source": "Larry Nance Jr",
+      "target": "Dyson Daniels",
+      "value": 2.67
+    },
+    {
+      "source": "Larry Nance Jr",
+      "target": "Garrison Mathews",
+      "value": 1.78
+    },
+    {
+      "source": "Larry Nance Jr",
+      "target": "Jalen Johnson",
+      "value": 1.11
+    },
+    {
+      "source": "Larry Nance Jr",
+      "target": "Keaton Wallace",
+      "value": 1.67
+    },
+    {
+      "source": "Larry Nance Jr",
+      "target": "Onyeka Okongwu",
+      "value": 0.67
+    },
+    {
+      "source": "Larry Nance Jr",
+      "target": "Trae Young",
+      "value": 2.78
+    },
+    {
+      "source": "Larry Nance Jr",
+      "target": "V\u00edt Krej\u010d\u00ed",
+      "value": 0.11
+    },
+    {
+      "source": "Larry Nance Jr",
+      "target": "Zaccharie Risacher",
+      "value": 0.56
+    },
+    {
+      "source": "Mouhamed Gueye",
+      "target": "David Roddy",
+      "value": 0.5
+    },
+    {
+      "source": "Mouhamed Gueye",
+      "target": "Dominick Barlow",
+      "value": 1
+    },
+    {
+      "source": "Mouhamed Gueye",
+      "target": "Garrison Mathews",
+      "value": 0.5
+    },
+    {
+      "source": "Mouhamed Gueye",
+      "target": "Keaton Wallace",
+      "value": 3
+    },
+    {
+      "source": "Mouhamed Gueye",
+      "target": "Zaccharie Risacher",
+      "value": 0.5
+    },
+    {
+      "source": "Onyeka Okongwu",
+      "target": "Bogdan Bogdanovi\u0107",
+      "value": 0.73
+    },
+    {
+      "source": "Onyeka Okongwu",
+      "target": "David Roddy",
+      "value": 0.67
+    },
+    {
+      "source": "Onyeka Okongwu",
+      "target": "DeAndre Hunter",
+      "value": 0.67
+    },
+    {
+      "source": "Onyeka Okongwu",
+      "target": "Dyson Daniels",
+      "value": 1.6
+    },
+    {
+      "source": "Onyeka Okongwu",
+      "target": "Garrison Mathews",
+      "value": 1.27
+    },
+    {
+      "source": "Onyeka Okongwu",
+      "target": "Jalen Johnson",
+      "value": 3.8
+    },
+    {
+      "source": "Onyeka Okongwu",
+      "target": "Keaton Wallace",
+      "value": 1.8
+    },
+    {
+      "source": "Onyeka Okongwu",
+      "target": "Kobe Bufkin",
+      "value": 0.67
+    },
+    {
+      "source": "Onyeka Okongwu",
+      "target": "Larry Nance Jr",
+      "value": 0.53
+    },
+    {
+      "source": "Onyeka Okongwu",
+      "target": "Trae Young",
+      "value": 5.33
+    },
+    {
+      "source": "Onyeka Okongwu",
+      "target": "V\u00edt Krej\u010d\u00ed",
+      "value": 0.67
+    },
+    {
+      "source": "Onyeka Okongwu",
+      "target": "Zaccharie Risacher",
+      "value": 0.67
+    },
+    {
+      "source": "Trae Young",
+      "target": "Bogdan Bogdanovi\u0107",
+      "value": 2.06
+    },
+    {
+      "source": "Trae Young",
+      "target": "Clint Capela",
+      "value": 8.75
+    },
+    {
+      "source": "Trae Young",
+      "target": "David Roddy",
+      "value": 3.38
+    },
+    {
+      "source": "Trae Young",
+      "target": "DeAndre Hunter",
+      "value": 2.75
+    },
+    {
+      "source": "Trae Young",
+      "target": "Dyson Daniels",
+      "value": 11.56
+    },
+    {
+      "source": "Trae Young",
+      "target": "Garrison Mathews",
+      "value": 4
+    },
+    {
+      "source": "Trae Young",
+      "target": "Jalen Johnson",
+      "value": 16.25
+    },
+    {
+      "source": "Trae Young",
+      "target": "Keaton Wallace",
+      "value": 1.38
+    },
+    {
+      "source": "Trae Young",
+      "target": "Larry Nance Jr",
+      "value": 2.06
+    },
+    {
+      "source": "Trae Young",
+      "target": "Onyeka Okongwu",
+      "value": 5.44
+    },
+    {
+      "source": "Trae Young",
+      "target": "V\u00edt Krej\u010d\u00ed",
+      "value": 0.81
+    },
+    {
+      "source": "Trae Young",
+      "target": "Zaccharie Risacher",
+      "value": 8.44
+    },
+    {
+      "source": "V\u00edt Krej\u010d\u00ed",
+      "target": "Bogdan Bogdanovi\u0107",
+      "value": 0.86
+    },
+    {
+      "source": "V\u00edt Krej\u010d\u00ed",
+      "target": "Clint Capela",
+      "value": 0.43
+    },
+    {
+      "source": "V\u00edt Krej\u010d\u00ed",
+      "target": "David Roddy",
+      "value": 0.57
+    },
+    {
+      "source": "V\u00edt Krej\u010d\u00ed",
+      "target": "DeAndre Hunter",
+      "value": 0.14
+    },
+    {
+      "source": "V\u00edt Krej\u010d\u00ed",
+      "target": "Dyson Daniels",
+      "value": 0.86
+    },
+    {
+      "source": "V\u00edt Krej\u010d\u00ed",
+      "target": "Garrison Mathews",
+      "value": 1.71
+    },
+    {
+      "source": "V\u00edt Krej\u010d\u00ed",
+      "target": "Jalen Johnson",
+      "value": 5.14
+    },
+    {
+      "source": "V\u00edt Krej\u010d\u00ed",
+      "target": "Keaton Wallace",
+      "value": 1.29
+    },
+    {
+      "source": "V\u00edt Krej\u010d\u00ed",
+      "target": "Kobe Bufkin",
+      "value": 0.14
+    },
+    {
+      "source": "V\u00edt Krej\u010d\u00ed",
+      "target": "Larry Nance Jr",
+      "value": 0.14
+    },
+    {
+      "source": "V\u00edt Krej\u010d\u00ed",
+      "target": "Mouhamed Gueye",
+      "value": 0.14
+    },
+    {
+      "source": "V\u00edt Krej\u010d\u00ed",
+      "target": "Onyeka Okongwu",
+      "value": 2.14
+    },
+    {
+      "source": "V\u00edt Krej\u010d\u00ed",
+      "target": "Trae Young",
+      "value": 2
+    },
+    {
+      "source": "V\u00edt Krej\u010d\u00ed",
+      "target": "Zaccharie Risacher",
+      "value": 1.57
+    },
+    {
+      "source": "Zaccharie Risacher",
+      "target": "Bogdan Bogdanovi\u0107",
+      "value": 0.29
+    },
+    {
+      "source": "Zaccharie Risacher",
+      "target": "Clint Capela",
+      "value": 0.94
+    },
+    {
+      "source": "Zaccharie Risacher",
+      "target": "David Roddy",
+      "value": 0.53
+    },
+    {
+      "source": "Zaccharie Risacher",
+      "target": "DeAndre Hunter",
+      "value": 0.24
+    },
+    {
+      "source": "Zaccharie Risacher",
+      "target": "Dyson Daniels",
+      "value": 1.76
+    },
+    {
+      "source": "Zaccharie Risacher",
+      "target": "Garrison Mathews",
+      "value": 0.59
+    },
+    {
+      "source": "Zaccharie Risacher",
+      "target": "Jalen Johnson",
+      "value": 3.76
+    },
+    {
+      "source": "Zaccharie Risacher",
+      "target": "Keaton Wallace",
+      "value": 1.76
+    },
+    {
+      "source": "Zaccharie Risacher",
+      "target": "Kobe Bufkin",
+      "value": 0.18
+    },
+    {
+      "source": "Zaccharie Risacher",
+      "target": "Larry Nance Jr",
+      "value": 0.35
+    },
+    {
+      "source": "Zaccharie Risacher",
+      "target": "Mouhamed Gueye",
+      "value": 0.06
+    },
+    {
+      "source": "Zaccharie Risacher",
+      "target": "Onyeka Okongwu",
+      "value": 0.59
+    },
+    {
+      "source": "Zaccharie Risacher",
+      "target": "Trae Young",
+      "value": 7.71
+    },
+    {
+      "source": "Zaccharie Risacher",
+      "target": "V\u00edt Krej\u010d\u00ed",
+      "value": 0.41
+    }
+  ]
+}
