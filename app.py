@@ -16,7 +16,12 @@ with open("network_data/teams.json", "r") as f:
 def index():
     seasons = sorted(all_stats.keys(), reverse=True)
     selected_season = seasons[0]
-    selected_team = None
+    # selected_team = None
+    teams = list(all_stats[selected_season].keys())
+    selected_team = request.args.get("team")
+    if not selected_team or selected_team not in teams:
+        selected_team = teams[0]    
+        
     selected_players = []
 
     if request.method == "POST":
