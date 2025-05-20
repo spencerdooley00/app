@@ -33,6 +33,8 @@ function renderNetwork(data) {
         .force("charge", d3.forceManyBody().strength(-700))  // more repulsion
         .force("center", d3.forceCenter(width / 2, height / 2))
         .force("collision", d3.forceCollide().radius(40))
+
+
 ;
 
     // const link = svg.append("g")
@@ -77,17 +79,7 @@ function renderNetwork(data) {
             node
                 .attr("transform", d => `translate(${d.x},${d.y})`);
         });
-    // simulation.on("tick", () => {
-    //     link
-    //         .attr("x1", d => d.source.x)
-    //         .attr("y1", d => d.source.y)
-    //         .attr("x2", d => d.target.x)
-    //         .attr("y2", d => d.target.y);
 
-    //     node
-    //         .attr("x", d => d.x - 20)
-    //         .attr("y", d => d.y - 20);
-    // });
 }
 
 // Dragging behavior

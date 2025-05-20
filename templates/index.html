@@ -10,6 +10,234 @@
     <div class="container">
         <aside class="sidebar">
             <h1>NBA Network</h1>
+            
+            <label for="season">Season:</label>
+            <select id="season">
+                {% for season in seasons %}
+                    <option value="{{ season }}" {% if season == selected_season %}selected{% endif %}>{{ season }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="team">Team:</label>
+            <select id="team">
+                {% for team in teams %}
+                    <option value="{{ team }}" {% if team == selected_team %}selected{% endif %}>{{ team }}</option>
+                {% endfor %}
+            </select>
+
+            <h3>Players</h3>
+            <div class="players" id="player-checkboxes">
+                {% for player in players %}
+                    <label>
+                        <input type="checkbox" class="player-checkbox" value="{{ player }}" {% if player in selected_players %}checked{% endif %}>
+                        {{ player }}
+                    </label>
+                {% endfor %}
+            </div>
+        </aside>
+
+        <main class="network">
+            <div id="network"></div>
+        </main>
+    </div>
+
+    <!-- <script>
+        async function updateNetwork() {
+            const season = document.getElementById("season").value;
+            const team = document.getElementById("team").value;
+            const players = Array.from(document.querySelectorAll(".player-checkbox:checked")).map(cb => cb.value);
+
+            const response = await fetch("/update_network", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ season, team, players })
+            });
+
+            const data = await response.json();
+            drawNetwork(data);
+        }
+
+        function drawNetwork(data) {
+            d3.select("#network").selectAll("*").remove();
+
+            const svg = d3.select("#network").append("svg")
+                .attr("width", 800)
+                .attr("height", 800);
+
+            const simulation = d3.forceSimulation(data.nodes)
+                .force("link", d3.forceLink(data.links).id(d => d.id).distance(120))
+                .force("charge", d3.forceManyBody().strength(-400))
+                .force("center", d3.forceCenter(400, 400));
+
+            const link = svg.append("g")
+                .selectAll("line")
+                .data(data.links)
+                .enter().append("line")
+                .attr("stroke", "#aaa");
+
+            const node = svg.append("g")
+                .selectAll("circle")
+                .data(data.nodes)
+                .enter().append("circle")
+                .attr("r", 20)
+                .attr("fill", d => d.color);
+
+            const text = svg.append("g")
+                .selectAll("text")
+                .data(data.nodes)
+                .enter().append("text")
+                .text(d => d.name)
+                .attr("x", 25)
+                .attr("y", 5);
+
+            simulation.on("tick", () => {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node
+                    .attr("cx", d => d.x)
+                    .attr("cy", d => d.y);
+
+                text
+                    .attr("x", d => d.x + 25)
+                    .attr("y", d => d.y + 5);
+            });
+        }
+
+        document.getElementById("season").addEventListener("change", () => {
+            document.location = "/?season=" + document.getElementById("season").value;
+        });
+
+        document.getElementById("team").addEventListener("change", () => {
+            document.location = "/?season=" + document.getElementById("season").value + "&team=" + document.getElementById("team").value;
+        });
+
+        document.getElementById("player-checkboxes").addEventListener("change", updateNetwork);
+
+        // Initial draw
+        updateNetwork(); -->
+        <script>
+            async function updateNetwork() {
+                const season = document.getElementById("season").value;
+                const team = document.getElementById("team").value;
+                const players = Array.from(document.querySelectorAll(".player-checkbox:checked")).map(cb => cb.value);
+        
+                const response = await fetch("/update_network", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ season, team, players })
+                });
+        
+                const data = await response.json();
+                drawNetwork(data);
+            }
+        
+            function drawNetwork(data) {
+                d3.select("#network").selectAll("*").remove();
+        
+                const svg = d3.select("#network").append("svg")
+                    .attr("width", 800)
+                    .attr("height", 800);
+
+                svg.append("defs").append("marker")
+                    .attr("id", "arrow")
+                    .attr("viewBox", "0 -5 10 10")
+                    .attr("refX", 20)  // adjust for arrow position
+                    .attr("refY", 0)
+                    .attr("markerWidth", 6)
+                    .attr("markerHeight", 6)
+                    .attr("orient", "auto")
+                    .append("path")
+                    .attr("d", "M0,-5L10,0L0,5")
+                    .attr("fill", "#999")
+        
+                const simulation = d3.forceSimulation(data.nodes)
+                    .force("link", d3.forceLink(data.links).id(d => d.id).distance(330))
+                    .force("charge", d3.forceManyBody().strength(-500))
+                    .force("center", d3.forceCenter(400, 400));
+        
+                const link = svg.append("g")
+                    .attr("stroke", "#aaa")
+                    .selectAll("line")
+                    .data(data.links)
+                    .enter()
+                    .append("line")
+                    .attr("stroke-width", d => Math.max(2))  // Adjust the multiplier as needed
+                    .attr("stroke", d => d3.interpolateBlues(d.weight))
+                    .attr("marker-end", "url(#arrow)");;
+
+                const node = svg.append("g")
+                    .selectAll("g")
+                    .data(data.nodes)
+                    .enter()
+                    .append("g");
+        
+                // Circular headshots
+                node.append("clipPath")
+                    .attr("id", d => "clip-" + d.id.replace(/\s+/g, "-"))
+                    .append("circle")
+                    .attr("r", 25)
+                    .attr("cx", 0)
+                    .attr("cy", 0);
+        
+                node.append("image")
+                    .attr("xlink:href", d => d.img)
+                    .attr("x", -25)
+                    .attr("y", -25)
+                    .attr("width", 50)
+                    .attr("height", 50)
+                    .attr("clip-path", d => `url(#clip-${d.id.replace(/\s+/g, "-")})`);
+        
+                // Player names
+                node.append("text")
+                    .text(d => d.name)
+                    .attr("text-anchor", "middle")
+                    .attr("dy", 40)
+                    .attr("font-size", "12px");
+        
+                simulation.on("tick", () => {
+                    link
+                        .attr("x1", d => d.source.x)
+                        .attr("y1", d => d.source.y)
+                        .attr("x2", d => d.target.x)
+                        .attr("y2", d => d.target.y);
+        
+                    node.attr("transform", d => `translate(${d.x},${d.y})`);
+                });
+            }
+        
+            document.getElementById("season").addEventListener("change", () => {
+                document.location = "/?season=" + document.getElementById("season").value;
+            });
+        
+            document.getElementById("team").addEventListener("change", () => {
+                document.location = "/?season=" + document.getElementById("season").value + "&team=" + document.getElementById("team").value;
+            });
+        
+            document.getElementById("player-checkboxes").addEventListener("change", updateNetwork);
+        
+            // Initial draw
+            updateNetwork();
+        </script>
+    </script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NBA Passing Network</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='static.css') }}">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h1>NBA Network</h1>
             <form method="POST">
                 <label for="season">Season:</label>
                 <select name="season" id="season" onchange="this.form.submit()">
@@ -47,7 +275,7 @@
 
     <script src="{{ url_for('static', filename='network.js') }}"></script>
 </body>
-</html>
+</html> -->
 
 
 
