@@ -4,7 +4,7 @@ from pyvis.network import Network
 from nltk import ngrams
 
 # Load JSON data from local files
-with open("network_data/all_stats.json", "r") as f:
+with open("network_data/all_stats_test.json", "r") as f:
     all_stats = json.load(f)
 
 with open("network_data/teams.json", "r") as f:
